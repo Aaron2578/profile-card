@@ -40,7 +40,16 @@
 .designation {
   font-family: cursive;
   color: red;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.company {
+  padding-top: 0px;
+  margin-top: 0px;
+  font-family: cursive;
+  color: green;
+  font-size: 15px;
   font-weight: 600;
 }
 .skill {

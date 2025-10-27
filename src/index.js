@@ -1,7 +1,7 @@
 import react, { useState, useEffect } from "react";
 import reactdom from "react-dom/client";
 import "./index.css";
-import { FaLinkedin, FaGithub} from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 
 const skillObj = [
@@ -24,17 +24,47 @@ const skillObj = [
     img: "js.png",
   },
   {
+    skill: "BOOTSTRAP",
+    color: "4px solid blue",
+    level: "Intermediate",
+    img: "bootstrap.png",
+  },
+  {
     skill: "REACT",
     color: "4px solid skyblue",
     level: "Beginer",
     img: "React.png",
   },
   {
-    skill: "CANVA",
+    skill: "TAILWIND",
     color: "4px solid skyblue",
     level: "Beginer",
-    img: "canva.png",
+    img: "tailwindcss.png",
   },
+  {
+    skill: "TYPESCRIPT",
+    color: "4px solid skyblue",
+    level: "Beginer",
+    img: "Typescript.png",
+  },
+  {
+    skill: "PYTHON",
+    color: "4px solid skyblue",
+    level: "Beginer",
+    img: "python.png",
+  },
+  {
+    skill: "JAVA",
+    color: "4px solid skyblue",
+    level: "Beginer",
+    img: "java.png",
+  },
+  // {
+  //   skill: "CANVA",
+  //   color: "4px solid skyblue",
+  //   level: "Beginer",
+  //   img: "canva.png",
+  // },
   {
     skill: "FIGMA",
     color: "4px solid skyblue",
@@ -55,13 +85,7 @@ const skillObj = [
   },
 ];
 
-const message = [
-  "Create ...",
-  "... Build ...",
-  "... Innovate ...",
-  "... Focus ...",
-  "... Grow",
-];
+const message = ["Teach", "Inspire", "Transform"];
 
 function App() {
   return (
@@ -112,7 +136,8 @@ function Profile() {
         className="profile-img"
       />
       <p className="profile-name">Aaron C</p>
-      <p className="designation">Front-end Developer</p>
+      <p className="designation">Technical Trainer</p>
+      <p className="company">@Srinivasa Academy</p>
       <p className="message">
         {/* <span>... </span> */}
         {message[index]}
@@ -152,10 +177,10 @@ function Profile() {
 function About() {
   return (
     <p className="aboutPara">
-      "As a recent graduate, I'm looking for an entry-level position in web
-      development where I can use my knowledge and abilities to keep getting
-      better. I am excited to learn and develop in a demanding and cooperative
-      work environment."
+      “Combining my passion for web development and teaching, I work as a
+      Technical Trainer to help learners understand coding through practical,
+      real-world examples. I’m always eager to grow, share knowledge, and
+      inspire others to build creative solutions.”
     </p>
   );
 }
@@ -229,8 +254,4 @@ function CopyRights() {
 
 const rootElement = document.getElementById("root");
 const root = reactdom.createRoot(rootElement);
-root.render(
-  <react.StrictMode>
-    <App />
-  </react.StrictMode>
-);
+root.render(<react.StrictMode>{<App />}</react.StrictMode>);
