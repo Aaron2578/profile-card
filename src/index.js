@@ -137,7 +137,7 @@ function Profile() {
       />
       <p className="profile-name">Aaron C</p>
       <p className="designation">Technical Trainer</p>
-      <p className="company">@Srinivasa Academy</p>
+      <p className="company">@TechMaaX</p>
       <p className="message">
         {/* <span>... </span> */}
         {message[index]}
@@ -255,3 +255,4 @@ function CopyRights() {
 const rootElement = document.getElementById("root");
 const root = reactdom.createRoot(rootElement);
 root.render(<react.StrictMode>{<App />}</react.StrictMode>);
+
