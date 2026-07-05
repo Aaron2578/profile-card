@@ -137,7 +137,7 @@ function Profile() {
       />
       <p className="profile-name">Aaron C</p>
       <p className="designation">Technical Trainer</p>
-      <p className="company">@Techmaax</p>
+      <p className="company">@SA 3D SOLUTIONS</p>
       <p className="message">
         {/* <span>... </span> */}
         {message[index]}
