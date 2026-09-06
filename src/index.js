@@ -204,7 +204,7 @@ function Profile() {
       <div className="avatar-wrapper">
         <div className="avatar-ring"></div>
         <img
-          src="AARON PROFILE PIC.jpeg"
+          src="87616f8f-ab2e-4e4d-845e-b366796491c6 (1).png.jpeg"
           alt="Aaron C"
           className="profile-img"
         />
