@@ -373,13 +373,15 @@ body {
 /* Clock & Info Bar */
 .info-pills-row {
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
   gap: 8px;
   width: 100%;
   margin-top: auto;
 }
 
 .info-badge {
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -391,6 +393,13 @@ body {
   padding: 6px 12px;
   border-radius: 10px;
   border: 1px solid var(--badge-border);
+}
+
+.info-badge span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -733,6 +742,15 @@ body {
   .filter-tab {
     padding: 4px 8px;
     font-size: 11px;
+  }
+
+  .info-pills-row {
+    flex-direction: column;
+  }
+
+  .info-badge {
+    flex: 0 0 auto;
+    width: 100%;
   }
 
   .skills-grid {
