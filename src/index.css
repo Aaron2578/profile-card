@@ -184,9 +184,12 @@ body {
 /* Avatar Showcase */
 .avatar-wrapper {
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 140px;
+  height: 140px;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .avatar-ring {
@@ -194,24 +197,49 @@ body {
   inset: -4px;
   border-radius: 50%;
   background: var(--accent-gradient);
-  opacity: 0.9;
-  filter: blur(1px);
-  transition: transform 0.3s ease;
+  opacity: 0.85;
+  filter: blur(2px);
+  transition: transform 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
+  z-index: 1;
 }
 
 .avatar-wrapper:hover .avatar-ring {
-  transform: scale(1.05) rotate(15deg);
+  transform: scale(1.04) rotate(10deg);
+  opacity: 1;
+  filter: blur(3px);
 }
 
-.profile-img {
+.avatar-circle {
   position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   border-radius: 50%;
+  overflow: hidden;
   border: 4px solid var(--card-bg);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-mask-image: -webkit-radial-gradient(white, black); /* Fix Safari border-radius overflow bug */
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 8%;
+  transform: scale(1.12);
+  transform-origin: 50% 16%;
   display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.avatar-wrapper:hover .profile-img {
+  transform: scale(1.18);
 }
 
 /* Name & Titles */
@@ -685,63 +713,199 @@ body {
 @media (max-width: 980px) {
   .card-container {
     grid-template-columns: 1fr;
-    max-width: 650px;
+    max-width: 660px;
     margin: 0 auto;
+  }
+
+  .theme-toggle-btn {
+    top: 18px;
+    right: 18px;
   }
 
   .profile-column {
     border-right: none;
     border-bottom: 1px solid var(--card-border);
-    padding: 36px 24px;
+    padding: 38px 28px 30px;
   }
 
   .content-column {
-    padding: 30px 24px;
+    padding: 32px 28px;
+  }
+
+  .info-pills-row {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .info-badge {
+    flex: 0 1 auto;
+    min-width: 160px;
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
   body {
     padding: 16px 12px;
   }
 
-  .profile-column {
-    padding: 28px 16px;
+  .app-wrapper {
+    gap: 14px;
   }
 
-  .content-column {
-    padding: 24px 16px;
+  .card-container {
+    border-radius: 22px;
+  }
+
+  .theme-toggle-btn {
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .profile-column {
+    padding: 32px 18px 24px;
+  }
+
+  .status-pill {
+    margin-top: 4px;
+    margin-bottom: 20px;
+    max-width: calc(100% - 64px);
+    font-size: 11.5px;
+    padding: 5px 12px;
+    text-align: center;
   }
 
   .avatar-wrapper {
-    width: 110px;
-    height: 110px;
+    width: 125px;
+    height: 125px;
+    margin-bottom: 16px;
+  }
+
+  .profile-img {
+    object-position: 50% 8%;
+    transform: scale(1.12);
+    transform-origin: 50% 16%;
+  }
+
+  .avatar-wrapper:hover .profile-img {
+    transform: scale(1.18);
   }
 
   .profile-name {
-    font-size: 22px;
+    font-size: 23px;
   }
 
-  .cta-group {
-    flex-direction: column;
+  .designation {
+    font-size: 14px;
   }
 
-  .btn {
+  .company-badge {
+    font-size: 12px;
+    padding: 3px 10px;
+    margin-bottom: 14px;
+  }
+
+  .tagline-box {
+    padding: 8px 14px;
+    margin-bottom: 18px;
+    min-height: 44px;
+  }
+
+  .tagline-text {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .social-links {
+    margin-bottom: 18px;
+    gap: 10px;
+  }
+
+  .social-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 17px;
+    border-radius: 10px;
+  }
+
+  .info-pills-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
+    gap: 8px;
+  }
+
+  .info-badge {
+    flex: 1 1 140px;
+    font-size: 11.5px;
+    padding: 6px 10px;
+  }
+
+  .content-column {
+    padding: 24px 18px;
+    gap: 20px;
+  }
+
+  .section-title {
+    font-size: 12px;
+  }
+
+  .about-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .about-para {
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .highlights-row {
+    gap: 6px;
+  }
+
+  .highlight-chip {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .skills-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
   }
 
   .filter-tabs {
     width: 100%;
-    justify-content: space-between;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px;
+    display: flex;
+    gap: 4px;
+  }
+
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-tab {
-    padding: 4px 8px;
-    font-size: 11px;
+    flex: 1;
+    min-width: fit-content;
+    white-space: nowrap;
+    padding: 6px 10px;
+    font-size: 11.5px;
+    text-align: center;
   }
 
   .info-pills-row {
@@ -755,5 +919,98 @@ body {
 
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .skill-card {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .skill-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    padding: 3px;
+    border-radius: 6px;
+  }
+
+  .skill-title {
+    font-size: 12px;
+  }
+
+  .cta-group {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 6px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 13.5px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  body {
+    padding: 10px 8px;
+  }
+
+  .card-container {
+    border-radius: 18px;
+  }
+
+  .profile-column {
+    padding: 28px 12px 20px;
+  }
+
+  .content-column {
+    padding: 20px 12px;
+  }
+
+  .status-pill {
+    font-size: 10.5px;
+    padding: 4px 10px;
+    max-width: calc(100% - 50px);
+  }
+
+  .avatar-wrapper {
+    width: 115px;
+    height: 115px;
+  }
+
+  .profile-name {
+    font-size: 21px;
+  }
+
+  .info-pills-row {
+    flex-direction: column;
+  }
+
+  .info-badge {
+    width: 100%;
+  }
+
+  .filter-tab {
+    padding: 5px 8px;
+    font-size: 10.5px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .skill-card {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+
+  .skill-title {
+    font-size: 11px;
   }
 }
