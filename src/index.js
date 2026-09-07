@@ -203,10 +203,13 @@ function Profile() {
 
       <div className="avatar-wrapper">
         <div className="avatar-ring"></div>
-        <img src="Aaron.png"
-          alt="Aaron C"
-          className="profile-img"
-        />
+        <div className="avatar-circle">
+          <img
+            src="Aaron.png"
+            alt="Aaron C"
+            className="profile-img"
+          />
+        </div>
       </div>
 
       <div className="profile-name-group">
